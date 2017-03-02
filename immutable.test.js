@@ -50,6 +50,7 @@ describe('Immutable manipulations for Arrays', () => {
     const updatedFruitBasket = fruitBasket;
 
     expect(updatedFruitBasket).toEqual(['Oranges', 'Bananas', 'Apples']);
+    expect(updatedFruitBasket).not.toBe(fruitBasket);
     expect(fruitBasket).toEqual(['Oranges', 'Bananas', 'Apples', 'Strawberries']);
   })
 
@@ -85,7 +86,7 @@ describe('Immutable manipulations for Arrays', () => {
     expect(fruitBasket).toEqual(['Oranges', 'Bananas', 'Sausages', 'Apples', 'Strawberries']);
   })
 
-  test('Update at specific index', () => {
+  test('Substitute at specific index', () => {
     const fruitBasket = ['Oranges', 'Bananas', 'Sausages', 'Apples', 'Strawberries'];
     /* 
      * Use a combination of the spread operator and the slice method to make
@@ -98,6 +99,36 @@ describe('Immutable manipulations for Arrays', () => {
 
     expect(updatedFruitBasket).toEqual(['Oranges', 'Bananas', 'Blueberry', 'Apples', 'Strawberries']);
     expect(fruitBasket).toEqual(['Oranges', 'Bananas', 'Sausages', 'Apples', 'Strawberries']);
+  })
+
+  test('Conditional update', () => {
+    const fruitBasket = [
+      {name: 'Oranges', color: 'orange', tasty: false},
+      {name: 'Bananas', color: 'yellow', tasty: false},
+      {name: 'Apples', color: 'red', tasty: false},
+      {name: 'Strawberries', color: 'red', tasty: false}
+    ];
+    /* 
+     * The map method is also a powerful array method that always return a new array.
+     * It can be used for complex immutable manipulations. 
+     * Use map to change the 'tasty' value to 'true' for all red fruits 
+     * 
+     * Assign the new array to the updatedFruitBasket constant.
+     */ 
+    const updatedFruitBasket = fruitBasket;
+
+    expect(updatedFruitBasket).toEqual([
+      {name: 'Oranges', color: 'orange', tasty: false},
+      {name: 'Bananas', color: 'yellow', tasty: false},
+      {name: 'Apples', color: 'red', tasty: true},
+      {name: 'Strawberries', color: 'red', tasty: true}
+    ]);
+    expect(fruitBasket).toEqual([
+      {name: 'Oranges', color: 'orange', tasty: false},
+      {name: 'Bananas', color: 'yellow', tasty: false},
+      {name: 'Apples', color: 'red', tasty: false},
+      {name: 'Strawberries', color: 'red', tasty: false}
+    ]);
   })
 });
 
