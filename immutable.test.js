@@ -101,6 +101,34 @@ describe('Immutable manipulations for Arrays', () => {
     expect(fruitBasket).toEqual(['Oranges', 'Bananas', 'Sausages', 'Apples', 'Strawberries']);
   })
 
+  test('Filtering', () => {
+    const fruitBasket = [
+      {name: 'Oranges', tasty: true},
+      {name: 'Bananas', tasty: true},
+      {name: 'NastyBerry', tasty: false},
+      {name: 'Strawberries', tasty: true}
+    ];
+    /* 
+     * Use the array's filter method to create a new array
+     * containing only "tasty" fruits
+     * 
+     * Assign the new array to the updatedFruitBasket constant.
+     */ 
+    const updatedFruitBasket = fruitBasket;
+
+    expect(updatedFruitBasket).toEqual([
+      {name: 'Oranges', tasty: true},
+      {name: 'Bananas', tasty: true},
+      {name: 'Strawberries', tasty: true}
+    ]);
+    expect(fruitBasket).toEqual([
+      {name: 'Oranges', tasty: true},
+      {name: 'Bananas', tasty: true},
+      {name: 'NastyBerry', tasty: false},
+      {name: 'Strawberries', tasty: true}
+    ]);
+  })
+
   test('Conditional update', () => {
     const fruitBasket = [
       {name: 'Oranges', color: 'orange', tasty: false},
