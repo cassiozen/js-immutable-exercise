@@ -1,0 +1,29 @@
+{
+  "name": "immutability-tests",
+  "description": "Immutability in plain JavaScript",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://github.com/kentcdodds/built-ins-workshop",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kentcdodds/built-ins-workshop.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.1.10",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "jest-cli": "^19.0.2"
+  },
+  "scripts": {
+    "start": "npm run test:watch",
+    "test": "jest",
+    "test:changed": "npm run test --silent -- --onlyChanged",
+    "test:watch": "npm test -- --watch"
+  },
+  "LICENSE": "MIT"
+}
